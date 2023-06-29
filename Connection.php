@@ -5,7 +5,7 @@ class Connection {
     public function __construct()
     {
         $host = strtolower($_SERVER['HTTP_HOST']);
-echo $host;
+
         switch($host) {
             case 'dev.muondetector':
                 $servername = "localhost";
