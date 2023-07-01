@@ -40,10 +40,10 @@ class Connection {
             $result = $this->db->query($sql);
             if ($verbose) {
                 echo $sql. PHP_EOL;
-                if ($result === TRUE) {
-                    echo "SQL executed successfully";
-                } else {
+                if ($result === FALSE) {
                     echo "Error: " . $this->db->error;
+                } else {
+                    echo "SQL executed successfully";
                 }
             }
         }

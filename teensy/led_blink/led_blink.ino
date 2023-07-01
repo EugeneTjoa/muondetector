@@ -10,7 +10,7 @@ struct Measurement {
   bool allocated = false;
 };
 
-const int BUFFER_SIZE = 5000;
+const int BUFFER_SIZE = 20;
 volatile int measurementIndex = -1;
 volatile Measurement measurements[BUFFER_SIZE];
 
@@ -19,6 +19,8 @@ void setup() {
   Serial.begin(9600);
   initInterrupts();
   pinMode(LED_BUILTIN, OUTPUT);
+    Serial.println("start");
+
 }
 
 void initInterrupts() {
@@ -109,7 +111,7 @@ void loop() {
     isOnChange = false;
     flushMeasurements();
   }
-  delay(50);
+  delay(1000);
 }
 
 
@@ -119,6 +121,7 @@ void flushMeasurements() {
   DynamicJsonDocument doc(capacity);
 
   int nmbMeasurements = 0;
+  
   for (int i=0; i < BUFFER_SIZE; i++) {
     volatile Measurement* measurement = &measurements[i];
     if (measurement->allocated) {
