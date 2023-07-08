@@ -5,11 +5,13 @@ require_once "../Connection.php";
 // Takes raw data from the request
 $json = file_get_contents('php://input');
 
+// print_r($json);
 // Converts it into a PHP object
 $rows = json_decode($json);
 
-print_r($rows);
-
+// echo "Post body:\r\n";
+// print_r($rows);
+// echo " End post body\r\n";
 $connection = new Connection();
 
 $values = array();
@@ -25,4 +27,4 @@ foreach($rows as $row) {
 $valuesText = implode(", ", $values);
 $sql = "INSERT INTO events (micros, sessionId, pin) VALUES $valuesText";
 
-$connection->query($sql, true);
+$connection->query($sql, false);
