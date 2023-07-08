@@ -15,7 +15,7 @@ class Connection {
                 $username = "root";
                 $password = "root";
                 break;
-            case 'previewsite.eu':
+            case REMOTE_HOST:
                 $servername = REMOTE_SERVER;
                 $dbname = REMOTE_DB;
                 $username = REMOTE_USERNAME;
