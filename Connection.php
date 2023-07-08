@@ -1,4 +1,6 @@
 <?php
+require_once("./env.php");
+
 class Connection {
     public $db;
 
@@ -14,10 +16,10 @@ class Connection {
                 $password = "root";
                 break;
             case 'previewsite.eu':
-                $servername = "localhost";
-                $dbname = "tjoadesign_wirechamber";
-                $username = "tjoadesign_wirechamber";
-                $password = "YfL3gFAg";
+                $servername = REMOTE_SERVER;
+                $dbname = REMOTE_DB;
+                $username = REMOTE_USERNAME;
+                $password = REMOTE_PASSWORD;
                 break;
             default:
                 die('Unknown host');
